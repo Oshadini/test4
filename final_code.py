@@ -94,12 +94,12 @@ with st.sidebar:
 def add_document(file):  
     if file.type != 'application/pdf':
         raise ValueError("Unsupported file type. Only PDFs are allowed.")
-
+    
     with tempfile.TemporaryDirectory() as temp_dir:
 
         temp_file_path = os.path.join(temp_dir, file.name)
         with open(temp_file_path, "wb") as temp_file:
-            temp_file.write(file.read())
+            temp_file.write(file.getvalue())
 
         elements = partition_pdf(
             filename=temp_file_path,
