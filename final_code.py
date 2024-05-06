@@ -10,7 +10,7 @@ from langchain.schema.output_parser import StrOutputParser
 import uuid
 import cohere
 from langchain_google_genai import ChatGoogleGenerativeAI
-
+import nltk
 from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
@@ -99,7 +99,7 @@ def add_document(file):
 
         temp_file_path = os.path.join(temp_dir, file.name)
         with open(temp_file_path, "wb") as temp_file:
-            temp_file.write(file.getvalue())
+            temp_file.write(file.read())
 
         elements = partition_pdf(
             filename=temp_file_path,
