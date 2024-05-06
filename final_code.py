@@ -47,12 +47,11 @@ import string
 
 
 
-os.environ['OPENAI_API_KEY'] = ""
-os.environ['GOOGLE_API_KEY'] = ""
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
+os.environ['GOOGLE_API_KEY'] = st.secrets["GOOGLE_API_KEY"]
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = f"Research_assistant"
+os.environ["LANGCHAIN_PROJECT"] = "multi_model_rag_mvr"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
-os.environ["LANGCHAIN_API_KEY"] = ""  # Update to your API key
 
 
 st.set_page_config(page_title="InfoGenie",layout="wide")
